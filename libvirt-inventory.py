@@ -16,14 +16,11 @@ inventory['_meta'] = {}
 inventory['_meta']['hostvars'] = {}
 inventory['all'] = {}
 inventory['all']['vars'] = {}
-inventory['all']['vars']['ansible_host'] = hostname
 inventory['all']['children'] = ['active', 'inactive', 'ungrouped']
 inventory['active'] = {}
 inventory['active']['vars'] = {}
-inventory['active']['vars']['ansible_host'] = hostname
 inventory['inactive'] = {}
 inventory['inactive']['vars'] = {}
-inventory['inactive']['vars']['ansible_host'] = hostname
 
 virthost = libvirt.open(host_domain)
 if virthost == None:
