@@ -32,8 +32,8 @@ alldomains = virthost.listAllDomains(0)
 activedomains = virthost.listAllDomains(libvirt.VIR_CONNECT_LIST_DOMAINS_ACTIVE)
 inactivedomains = virthost.listAllDomains(libvirt.VIR_CONNECT_LIST_DOMAINS_INACTIVE)
 
-inventory['active']['hosts'] = [domain.name() for domain in activedomains]
-inventory['inactive']['hosts'] = [domain.name() for domain in inactivedomains]
+inventory['active']['hosts'] = [domain.name().replace('-x86_64', '') for domain in activedomains]
+inventory['inactive']['hosts'] = [domain.name().replace('-x86_64', '') for domain in inactivedomains]
 
 if len(sys.argv) == 2 and sys.argv[1] == '--list':
     print(json.dumps(inventory, indent=4, sort_keys=True))
